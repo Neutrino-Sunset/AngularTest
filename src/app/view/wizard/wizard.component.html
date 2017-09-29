@@ -1,0 +1,6 @@
+<div>
+   <!-- [(activeIndex)] is a custom 2-way binding. -->
+   <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="false" (activeIndexChange)="onChanged($event)"></p-steps>
+   <ng-content></ng-content>
+   <input type="button" value="Next" (click)="onNext()">
+</div>
