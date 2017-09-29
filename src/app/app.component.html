@@ -1,9 +1,16 @@
 <h1>
-  {{title}}
+   {{title}}
 </h1>
 
-<app-wizard>
-  <app-wizard-step></app-wizard-step>
-  <app-wizard-step></app-wizard-step>
-  <app-wizard-step></app-wizard-step>
+<app-wizard wizardTitle="Wizard 1" (finished)="onWizardFinished()" (pageChanged)="onWizardPageChanged($event)">
+   <app-wizard-step title="Step 1 Title">
+      <p>Step 1 Content</p>
+   </app-wizard-step>
+   <app-wizard-step title="Step 2 Title">
+      <p>Step 2 Content</p>
+   </app-wizard-step>
+   <app-wizard-step title="Step 3 Title">
+      <p>Step 3 Content</p>
+   </app-wizard-step>
 </app-wizard>
+

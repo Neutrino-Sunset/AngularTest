@@ -1,6 +1,12 @@
 <div>
+   <h2 style="float:left">{{wizardTitle}} - {{activeTitle}}</h2>
+
    <!-- [(activeIndex)] is a custom 2-way binding. -->
-   <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="false" (activeIndexChange)="onChanged($event)"></p-steps>
+   <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="false" (activeIndexChange)="onChanged($event)">
+   </p-steps>
+
    <ng-content></ng-content>
-   <input type="button" value="Next" (click)="onNext()">
+
+   <input type="button" value="Previous" (click)="onPrevious()" [disabled]="previousButtonDisabled">
+   <input type="button" value="{{nextButtonText}}" (click)="onNext()">
 </div>
