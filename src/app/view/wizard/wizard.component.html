@@ -8,5 +8,5 @@
    <ng-content></ng-content>
 
    <input type="button" value="Previous" (click)="onPrevious()" [disabled]="previousButtonDisabled">
-   <input type="button" value="{{nextButtonText}}" (click)="onNext()">
+   <input type="button" value="{{nextButtonText}}" (click)="onNext()" [disabled]="nextButtonDisabled">
 </div>

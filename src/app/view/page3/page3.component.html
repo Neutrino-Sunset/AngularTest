@@ -1,0 +1,5 @@
+<div *ngIf='isActive'>
+   <p>Page 3 Content</p>
+   <label>Data: </label>
+   <input type="text" [(ngModel)]="data" (input)="onDataChanged()">
+</div>

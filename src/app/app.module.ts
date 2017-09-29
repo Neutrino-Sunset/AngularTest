@@ -8,12 +8,18 @@ import { StepsModule } from 'primeng/primeng';
 import { AppComponent } from './app.component';
 import { WizardComponent } from './view/wizard/wizard.component';
 import { WizardStepComponent } from './view/wizard/wizard-step/wizard-step.component';
+import { Page1Component } from './view/page1/page1.component';
+import { Page2Component } from './view/page2/page2.component';
+import { Page3Component } from './view/page3/page3.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WizardComponent,
-    WizardStepComponent
+    WizardStepComponent,
+    Page1Component,
+    Page2Component,
+    Page3Component
   ],
   imports: [
     BrowserModule,

@@ -1,13 +1,27 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
+import { Subject } from 'rxjs';
+
 
 @Component({
    selector: 'app-wizard-step',
-   templateUrl: './wizard-step.component.html',
-   styleUrls: ['./wizard-step.component.css']
+   template: `
+      <div *ngIf='isActive'>
+         <!-- Copy this to your Page subclass and put your content here. -->
+      </div>
+   `
 })
 export class WizardStepComponent {
 
    @Input() title: string;
 
-   public active: boolean;
+   public isActive: boolean = false;
+
+   public isValid: boolean = true;
+
+   private _isValidChanged: Subject<WizardStepComponent> = new Subject<WizardStepComponent>();
+   public isValidChanged$ = this._isValidChanged.asObservable();
+
+   public fireIsValidChanged(): void {
+      this._isValidChanged.next(this);
+   }
 }
