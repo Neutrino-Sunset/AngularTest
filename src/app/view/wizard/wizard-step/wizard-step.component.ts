@@ -3,14 +3,14 @@ import { Subject } from 'rxjs';
 
 
 @Component({
-   selector: 'app-wizard-step',
+   selector: 'app-wizard-page',
    template: `
       <div *ngIf='isActive'>
          <!-- Copy this to your Page subclass and put your content here. -->
       </div>
    `
 })
-export class WizardStepComponent {
+export class WizardPageComponent {
 
    @Input() title: string;
 
@@ -18,7 +18,7 @@ export class WizardStepComponent {
 
    public isValid: boolean = true;
 
-   private _isValidChanged: Subject<WizardStepComponent> = new Subject<WizardStepComponent>();
+   private _isValidChanged: Subject<WizardPageComponent> = new Subject<WizardPageComponent>();
    public isValidChanged$ = this._isValidChanged.asObservable();
 
    public fireIsValidChanged(): void {

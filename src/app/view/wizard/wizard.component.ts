@@ -1,8 +1,9 @@
-import { AfterContentInit, Component, ContentChildren, EventEmitter, Input, OnDestroy, Output, QueryList } from '@angular/core';
+import { AfterContentInit, Component, ContentChildren, EventEmitter, Input, OnDestroy, Output,
+   QueryList } from '@angular/core';
 import { MenuItem, StepsModule } from 'primeng/primeng';
 import { Subscription } from 'rxjs';
 
-import { WizardStepComponent } from './wizard-step/wizard-step.component';
+import { WizardPageComponent } from './wizard-step/wizard-step.component';
 
 
 @Component({
@@ -25,7 +26,7 @@ export class WizardComponent implements AfterContentInit, OnDestroy {
 
    // Implementation.
 
-   @ContentChildren(WizardStepComponent) steps: QueryList<WizardStepComponent>;
+   @ContentChildren(WizardPageComponent) steps: QueryList<WizardPageComponent>;
 
    public items: MenuItem[] = [];
 
@@ -42,9 +43,9 @@ export class WizardComponent implements AfterContentInit, OnDestroy {
    private _validChangedUnsub: Subscription;
 
    public ngAfterContentInit(): void {
-      this.steps.forEach((step: WizardStepComponent) => {
+      this.steps.forEach((step: WizardPageComponent) => {
          this.items.push({ label: step.title });
-         this._validChangedUnsub = step.isValidChanged$.subscribe((page: WizardStepComponent) => {
+         this._validChangedUnsub = step.isValidChanged$.subscribe((page: WizardPageComponent) => {
             this.nextButtonDisabled = !page.isValid;
          });
       });
@@ -75,7 +76,7 @@ export class WizardComponent implements AfterContentInit, OnDestroy {
    }
 
    private update(): void {
-      this.steps.forEach((step: WizardStepComponent, index: number) => {
+      this.steps.forEach((step: WizardPageComponent, index: number) => {
          if (index == this.activeIndex) {
             step.isActive = true;
             this.activeTitle = step.title;

@@ -1,14 +1,13 @@
 import { forwardRef, Component, OnInit } from '@angular/core';
-import { WizardStepComponent } from 'app/view/wizard/wizard-step/wizard-step.component';
+import { WizardPageComponent } from 'app/view/wizard/wizard-step/wizard-step.component';
 
 
 @Component({
    selector: 'app-page3',
    templateUrl: './page3.component.html',
-   styleUrls: ['./page3.component.css'],
-   providers: [{ provide: WizardStepComponent, useExisting: forwardRef(() => Page3Component) }]
+   providers: [{ provide: WizardPageComponent, useExisting: forwardRef(() => Page3Component) }]
 })
-export class Page3Component extends WizardStepComponent implements OnInit {
+export class Page3Component extends WizardPageComponent implements OnInit {
 
    public data: number = 0;
 
