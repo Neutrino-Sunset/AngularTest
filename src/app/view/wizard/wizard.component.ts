@@ -30,9 +30,9 @@ export class WizardComponent implements AfterContentInit, OnDestroy {
 
    public items: MenuItem[] = [];
 
-   public activeIndex: number = 0;
+   public activePageIndex: number = 0;
 
-   public activeTitle: string = "";
+   public activePageTitle: string = "";
 
    public previousButtonDisabled: boolean = true;
 
@@ -44,7 +44,7 @@ export class WizardComponent implements AfterContentInit, OnDestroy {
 
    public ngAfterContentInit(): void {
       this.steps.forEach((step: WizardPageComponent) => {
-         this.items.push({ label: step.title });
+         this.items.push({ label: step.pageTitle });
          this._validChangedUnsub = step.isValidChanged$.subscribe((page: WizardPageComponent) => {
             this.nextButtonDisabled = !page.isValid;
          });
@@ -58,15 +58,15 @@ export class WizardComponent implements AfterContentInit, OnDestroy {
    }
 
    public onPrevious(): void {
-      --this.activeIndex;
+      --this.activePageIndex;
       this.update();
    }
 
    public onNext(): void {
-      if (this.activeIndex == this.steps.length - 1) {
+      if (this.activePageIndex == this.steps.length - 1) {
          this.finished.emit();
       } else {
-         ++this.activeIndex;
+         ++this.activePageIndex;
          this.update();
       }
    }
@@ -77,16 +77,16 @@ export class WizardComponent implements AfterContentInit, OnDestroy {
 
    private update(): void {
       this.steps.forEach((step: WizardPageComponent, index: number) => {
-         if (index == this.activeIndex) {
+         if (index == this.activePageIndex) {
             step.isActive = true;
-            this.activeTitle = step.title;
+            this.activePageTitle = step.pageTitle;
             this.nextButtonDisabled = !step.isValid;
          } else {
             step.isActive = false;
          }
       })
-      this.previousButtonDisabled = this.activeIndex == 0;
-      this.nextButtonText = this.activeIndex == this.steps.length - 1 ? "Finish" : "Next";
-      this.pageChanged.emit({ pageIndex: this.activeIndex, pageTitle: this.activeTitle });
+      this.previousButtonDisabled = this.activePageIndex == 0;
+      this.nextButtonText = this.activePageIndex == this.steps.length - 1 ? "Finish" : "Next";
+      this.pageChanged.emit({ pageIndex: this.activePageIndex, pageTitle: this.activePageTitle });
    }
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 @Component({
    selector: 'app-root',
    templateUrl: './app.component.html',
@@ -8,7 +9,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
    public title = 'Simple Wizard Logic Demo';
 
-   public onWizardPageChanged(eventArg: {pageIndex: number, pageTitle: string}): void {
+   public onWizardPageChanged(eventArg: { pageIndex: number, pageTitle: string }): void {
       console.log('wizardPageChanged - page index: ' + eventArg.pageIndex + ', page title: ' + eventArg.pageTitle);
    }
 

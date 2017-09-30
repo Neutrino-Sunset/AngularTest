@@ -12,7 +12,7 @@ import { Subject } from 'rxjs';
 })
 export class WizardPageComponent {
 
-   @Input() title: string;
+   @Input() pageTitle: string;
 
    public isActive: boolean = false;
 

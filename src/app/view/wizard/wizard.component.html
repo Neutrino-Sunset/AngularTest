@@ -1,8 +1,8 @@
 <div>
-   <h2 style="float:left">{{wizardTitle}} - {{activeTitle}}</h2>
+   <h2 style="float:left">{{wizardTitle}} - {{activePageTitle}}</h2>
 
    <!-- [(activeIndex)] is a custom 2-way binding. -->
-   <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="false" (activeIndexChange)="onChanged($event)">
+   <p-steps [model]="items" [(activeIndex)]="activePageIndex" [readonly]="false" (activeIndexChange)="onChanged()">
    </p-steps>
 
    <ng-content></ng-content>
