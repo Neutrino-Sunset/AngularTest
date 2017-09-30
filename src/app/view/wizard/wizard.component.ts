@@ -3,7 +3,7 @@ import { AfterContentInit, Component, ContentChildren, EventEmitter, Input, OnDe
 import { MenuItem, StepsModule } from 'primeng/primeng';
 import { Subscription } from 'rxjs';
 
-import { WizardPageComponent } from './wizard-step/wizard-step.component';
+import { WizardPageComponent } from 'app/view/wizard/wizard-page/wizard-page.component';
 
 
 @Component({

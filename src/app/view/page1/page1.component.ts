@@ -1,5 +1,6 @@
 import { forwardRef, Component, OnInit } from '@angular/core';
-import { WizardPageComponent } from 'app/view/wizard/wizard-step/wizard-step.component';
+
+import { WizardPageComponent } from 'app/view/wizard/wizard-page/wizard-page.component';
 
 
 @Component({

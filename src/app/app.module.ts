@@ -5,12 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { StepsModule } from 'primeng/primeng';
 
-import { AppComponent } from './app.component';
-import { WizardComponent } from './view/wizard/wizard.component';
-import { WizardPageComponent } from './view/wizard/wizard-step/wizard-step.component';
-import { Page1Component } from './view/page1/page1.component';
-import { Page2Component } from './view/page2/page2.component';
-import { Page3Component } from './view/page3/page3.component';
+import { AppComponent } from 'app/app.component';
+import { WizardComponent } from 'app/view/wizard/wizard.component';
+import { WizardPageComponent } from 'app/view/wizard/wizard-page/wizard-page.component';
+import { Page1Component } from 'app/view/page1/page1.component';
+import { Page2Component } from 'app/view/page2/page2.component';
+import { Page3Component } from 'app/view/page3/page3.component';
+
 
 @NgModule({
   declarations: [
