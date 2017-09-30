@@ -1,5 +1,5 @@
 import { Component, Input, Output } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 
 @Component({
@@ -16,12 +16,13 @@ export class WizardPageComponent {
 
    public isActive: boolean = false;
 
-   public isValid: boolean = true;
-
    private _isValidChanged: Subject<WizardPageComponent> = new Subject<WizardPageComponent>();
-   public isValidChanged$ = this._isValidChanged.asObservable();
+   public isValidChanged$: Observable<WizardPageComponent> = this._isValidChanged.asObservable();
 
-   public fireIsValidChanged(): void {
+   private _isValid: boolean = true;
+   public get isValid(): boolean { return this._isValid; }
+   public set isValid(valid: boolean) {
+      this._isValid = valid;
       this._isValidChanged.next(this);
    }
 }

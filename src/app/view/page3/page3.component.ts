@@ -17,8 +17,6 @@ export class Page3Component extends WizardPageComponent implements OnInit {
    }
 
    public onDataChanged(): void {
-      console.log('onDataChanged - data: ' + this.data);
       this.isValid = this.data > 0;
-      this.fireIsValidChanged();
    }
 }
