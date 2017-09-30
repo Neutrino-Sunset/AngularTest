@@ -6,7 +6,7 @@ import { Subject } from 'rxjs';
    selector: 'app-wizard-page',
    template: `
       <div *ngIf='isActive'>
-         <!-- Copy this to your Page subclass and put your content here. -->
+         <!-- Copy this entire template to your Page subclass .html file and put your content here. -->
       </div>
    `
 })
