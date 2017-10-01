@@ -2,10 +2,14 @@
    <h2 style="float:left">{{wizardTitle}} - {{activePageTitle}}</h2>
 
    <!-- [(activeIndex)] is a custom 2-way binding. -->
-   <p-steps [model]="items" [(activeIndex)]="activePageIndex" [readonly]="false" (activeIndexChange)="onChanged()">
-   </p-steps>
+   <div style="float:right">
+      <p-steps [model]="items" [(activeIndex)]="activePageIndex" [readonly]="false" (activeIndexChange)="onChanged()">
+      </p-steps>
+   </div>
 
-   <ng-content></ng-content>
+   <div style="clear:both">
+      <ng-content></ng-content>
+   </div>
 
    <input type="button" value="Previous" (click)="onPrevious()" [disabled]="previousButtonDisabled">
    <input type="button" value="{{nextButtonText}}" (click)="onNext()" [disabled]="nextButtonDisabled">
