@@ -39,7 +39,7 @@ export class WizardComponent implements AfterContentInit {
 
    @ContentChildren(WizardPageComponent) steps: QueryList<WizardPageComponent>;
 
-   public items: MenuItem[] = [];
+   public stepItems: MenuItem[] = [];
 
    public activePageIndex: number = 0;
 
@@ -53,8 +53,8 @@ export class WizardComponent implements AfterContentInit {
 
 
    public ngAfterContentInit(): void {
-      this.steps.forEach((step: WizardPageComponent) => {
-         this.items.push({ label: step.pageTitle });
+      this.steps.forEach((step: WizardPageComponent, index: number) => {
+         this.stepItems.push({ label: step.pageTitle, disabled: index > 0 });
          // I'm not sure it's necessary to unsubscribe from either of these events because the lifetime of the pages is
          // the same as the lifetime of the wizard.
          step.isValidChanged$.subscribe((page: WizardPageComponent) => {
@@ -88,6 +88,7 @@ export class WizardComponent implements AfterContentInit {
    }
 
    private update(): void {
+      this.stepItems[this.activePageIndex].disabled = false;
       this.steps.forEach((step: WizardPageComponent, index: number) => {
          if (index == this.activePageIndex) {
             step.isActive = true;
