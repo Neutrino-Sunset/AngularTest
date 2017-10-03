@@ -16,6 +16,10 @@ export class Page3Component extends WizardPageComponent implements OnInit {
       this.isValid = false;
    }
 
+   public onGoToPage2(): void {
+      this.goToPage(1); // Zero based index of page 2.
+   }
+
    public onDataChanged(): void {
       this.isValid = this.data > 0;
    }

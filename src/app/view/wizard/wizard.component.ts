@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, ContentChildren, EventEmitter, Input, OnDestroy, Output,
+import { AfterContentInit, Component, ContentChildren, EventEmitter, Input, Output,
    QueryList } from '@angular/core';
 import { MenuItem, StepsModule } from 'primeng/primeng';
 import { Subscription } from 'rxjs';
@@ -21,7 +21,7 @@ import { WizardPageComponent } from 'app/view/wizard/wizard-page/wizard-page.com
    selector: 'app-wizard',
    templateUrl: './wizard.component.html'
 })
-export class WizardComponent implements AfterContentInit, OnDestroy {
+export class WizardComponent implements AfterContentInit {
 
    // Public interface.
 
@@ -51,21 +51,22 @@ export class WizardComponent implements AfterContentInit, OnDestroy {
 
    public nextButtonText: string = "Next";
 
-   private _validChangedUnsub: Subscription;
 
    public ngAfterContentInit(): void {
       this.steps.forEach((step: WizardPageComponent) => {
          this.items.push({ label: step.pageTitle });
-         this._validChangedUnsub = step.isValidChanged$.subscribe((page: WizardPageComponent) => {
+         // I'm not sure it's necessary to unsubscribe from either of these events because the lifetime of the pages is
+         // the same as the lifetime of the wizard.
+         step.isValidChanged$.subscribe((page: WizardPageComponent) => {
             this.nextButtonDisabled = !page.isValid;
          });
+         step.pageChangeRequest$.subscribe((index: number) => {
+            this.activePageIndex = index;
+            this.update();
+         })
       });
 
       this.update();
-   }
-
-   public ngOnDestroy(): void {
-      this._validChangedUnsub.unsubscribe();
    }
 
    public onPrevious(): void {
