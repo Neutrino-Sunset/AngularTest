@@ -10,15 +10,8 @@ import { WizardPageComponent } from 'app/view/wizard/wizard-page/wizard-page.com
 // Reusable component to support the creation of a wizard style UI that presents a task as a sequence of steps.
 //
 // -- Usage --
-// Implement each page in your wizard as a new component that subclasses WizardPageComponent.
-// See 'app/view/page1' for an example.
-
-// Subclassing an Angular component consists of the following steps.
-// 1. Import the base class. e.g. import { WizardPageComponent } from '.../wizard-page.component';
-// 2. Extend the subclass. e.g. 'export class Page1Component extends WizardPageComponent'
-// 3. Add a useExisting provider to the component decorator e.g.
-//    providers: [{ provide: WizardPageComponent, useExisting: forwardRef(() => Page1Component) }]
-// 4. Copy the base classes html template to the subclass and add whatever page content you like.
+// Implement each page in your wizard as a new component that subclasses WizardPageComponent. See 'app/view/page1' for
+// an example.
 //
 // Create a WizardComponent that contains your WizardPages. See 'app/app.component.html' for an example.
 //
