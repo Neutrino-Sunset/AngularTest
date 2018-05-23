@@ -1,0 +1,11 @@
+<h1>Dynamic Test</h1>
+
+<input type="button" value="Show/Hide Component (ngIf)" (click)="showDynamic1 = !showDynamic1">
+
+<input type="button" value="Show/Hide Component (ndc-dynamic)" (click)="toggleDynamic1()">
+
+<ndc-dynamic *ngIf="showDynamic1"
+   [ndcDynamicComponent]="dynamic1"
+   [ndcDynamicInputs]="dynamic1Inputs"
+   [ndcDynamicOutputs]="dynamic1Outputs">
+</ndc-dynamic>

@@ -15,13 +15,18 @@ export class ModelTestComponent {
    }
 
    private test2(): void {
-      let json: Object = {
+      let json1: Object = {
          'Property1': 42,
          'Property2': 'Bob',
          'Property3': {
             'Property1': 43,
             'Property2': 'Fred',
          }
+      };
+      let json2: Object = {
+         'Property1': 42,
+         'Property2': 'Bob',
+         'Property3': null
       };
 
       let jc: JsonConvert = new JsonConvert();
@@ -30,7 +35,7 @@ export class ModelTestComponent {
       try {
          // This will error if there are properties on the json that are not on the model, and also if there are
          // properties on the model that are not present in the json.
-         parent = jc.deserialize(json, Parent);
+         parent = jc.deserialize(json2, Parent);
       }
       catch(e) {
          console.log('Error: ' + e);

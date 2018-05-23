@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { DynamicModule } from 'ng-dynamic-component';
 import { StepsModule } from 'primeng/primeng';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -13,12 +14,15 @@ import { Page3Component } from 'app/view/page3/page3.component';
 import { WizardTestComponent } from './view/wizard-test/wizard-test.component';
 import { MainComponent } from './view/main/main.component';
 import { ModelTestComponent } from './view/model-test/model-test.component';
+import { DynamicTestComponent } from './view/dynamic-test/dynamic-test.component';
+import { Dynamic1Component } from './view/dynamic1/dynamic1.component';
 
 
 const appRoutes: Routes = [
    { path: '', component: MainComponent },
    { path: 'wizard-test', component: WizardTestComponent },
-   { path: 'model-test', component: ModelTestComponent }
+   { path: 'model-test', component: ModelTestComponent },
+   { path: 'dynamic-test', component: DynamicTestComponent }
 ];
 
 
@@ -32,13 +36,16 @@ const appRoutes: Routes = [
       Page3Component,
       WizardTestComponent,
       MainComponent,
-      ModelTestComponent
+      ModelTestComponent,
+      DynamicTestComponent,
+      Dynamic1Component
    ],
    imports: [
       RouterModule.forRoot(appRoutes/*, { enableTracing: true }*/),
       BrowserModule,
       FormsModule,
-      StepsModule
+      StepsModule,
+      DynamicModule.withComponents([Dynamic1Component])
    ],
    providers: [],
    bootstrap: [AppComponent]
